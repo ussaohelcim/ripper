@@ -1,0 +1,7 @@
+name=Ripper.
+author=ussaohelcim
+description=Slice some circles.
+bundleID=com.NILCO.Ripper
+version=1.0.0
+imagePath=assets/cartridge/
+buildNumber=100
