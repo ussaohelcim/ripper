@@ -2,6 +2,7 @@ name=Ripper.
 author=ussaohelcim
 description=Slice some circles.
 bundleID=com.NILCO.Ripper
-version=1.0.0
+version=1.2.0
 imagePath=assets/cartridge/
-buildNumber=100
+buildNumber=120
+
