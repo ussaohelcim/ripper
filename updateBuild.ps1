@@ -1,6 +1,11 @@
-param([string]$version)
+param(
+	[string]$version,
+	[switch]$build,
+	$source = "src"
+)
 
-$pdxinfo = Get-Content (Join-Path ($PSScriptRoot) ".." ("src","pdxinfo"))
+$path = "$PSScriptRoot/$source/pdxinfo"
+$pdxinfo = Get-Content $path
 
 $pdxinfo = $pdxinfo.Split("\n")
 $output = ""
@@ -38,7 +43,11 @@ else{
 		}
 	}
 
-	Set-Content (Join-Path ($PSScriptRoot) ".." ("src","pdxinfo")) $output
-	
+	Set-Content $path $output
+	Write-Host "Updated pdxfinfo" -ForegroundColor Green
 	Write-Host $output
+}
+
+if($build){
+	.\build.ps1
 }

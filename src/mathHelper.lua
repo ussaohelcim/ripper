@@ -169,3 +169,5 @@ function math.CheckCollisionCircleRect(cx, cy, cr, rx, ry, rw, rh)
 
 	return collision;
 end
+
+math.TAU = math.pi * 2

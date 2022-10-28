@@ -25,9 +25,10 @@ function GetDeltaTime()
 	return dt * 0.001
 end
 
+local checkerBoardpattern = { 0xaa, 0x55, 0xaa, 0x55, 0xaa, 0x55, 0xaa, 0x55 }
+
 local shakeTime = 0
 local shakeStrength = 2
-local checkerBoardpattern = { 0xaa, 0x55, 0xaa, 0x55, 0xaa, 0x55, 0xaa, 0x55 }
 
 function UpdateShakeScreen(dt)
 	if shakeTime > 0 then
@@ -107,12 +108,20 @@ end
 ---@param subdivisions number
 ---@param callback function (x,y)
 function RunOnCircle(x, y, r, subdivisions, callback)
-	for i = 0, subdivisions - 1, 1 do
-		local t = i / subdivisions
-		local a = t * TAU
+	-- for i = 0, subdivisions - 1, 1 do
+	-- 	local t = i / subdivisions
+	-- 	local a = t * TAU
 
+	-- 	local rx = x + (math.cos(a) * r)
+	-- 	local ry = y + (math.sin(a) * r)
+	-- 	callback(rx, ry)
+	-- end
+
+	for i = 1, subdivisions, 1 do
+		local a = math.TAU / subdivisions * (i + 1)
 		local rx = x + (math.cos(a) * r)
 		local ry = y + (math.sin(a) * r)
+
 		callback(rx, ry)
 	end
 end
